@@ -1,0 +1,6 @@
+name: ci-check-one
+version: 1
+values:
+  - id: lint
+    enabled: true
+    description: "Placeholder check for CI validation."
