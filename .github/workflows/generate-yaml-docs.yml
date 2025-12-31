@@ -22,3 +22,15 @@ jobs:
 
       - name: Generate documentation
         run: python scripts/generate_yaml_docs.py --input-dir yaml --output-file docs/yaml-docs.md
+
+      - name: Commit updated docs
+        run: |
+          if git diff --quiet -- docs/yaml-docs.md; then
+            echo "No documentation changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/yaml-docs.md
+          git commit -m "Update generated YAML docs"
+          git push

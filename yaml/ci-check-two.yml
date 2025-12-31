@@ -1,0 +1,6 @@
+name: ci-check-two
+version: 1
+values:
+  - id: test
+    enabled: true
+    description: "Placeholder check for CI validation."
